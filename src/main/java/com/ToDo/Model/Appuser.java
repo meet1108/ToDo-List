@@ -29,6 +29,7 @@ public class Appuser {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -48,6 +49,17 @@ public class Appuser {
 		this.conformPassword = conformPassword;
 	}
 	
-	
+	public Appuser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Appuser(int userId, String fullName, String email, String password, String conformPassword) {
+		super();
+		this.userId = userId;
+		this.fullName = fullName;
+		this.email = email;
+		this.password = password;
+		this.conformPassword = conformPassword;
+	}
 
 }
