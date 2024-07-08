@@ -1,9 +1,12 @@
 package com.ToDo.Service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.ToDo.Dao.RegisterDao;
 import com.ToDo.Model.Appuser;
+import com.ToDo.Model.userTask;
 
 @Service
 public class RegisterServiceImpl implements RegisterService{
@@ -15,9 +18,29 @@ public class RegisterServiceImpl implements RegisterService{
 		this.registerDao = registerDao;
 	}
 	
+	//Create User 
 	public void createUser(Appuser user) {
-		
 		registerDao.insertUser(user);
+	}
+	
+
+	//Create Task
+	@Override
+	public void createTask(userTask task) {
+		registerDao.insertTask(task);
+	}
+
+	//Login And check the User is Valid or not
+	@Override
+	public Appuser processLogin(String Email, String Password) {
+
+		return registerDao.findByEmailAndPassword(Email, Password);
+	}
+
+	@Override
+	public List<userTask> userTask(String Email) {
+		
+		return registerDao.findTask(Email);
 	}
 	
 	
