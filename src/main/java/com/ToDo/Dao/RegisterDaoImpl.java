@@ -124,6 +124,22 @@ public class RegisterDaoImpl implements RegisterDao {
 		
 	}
 
+
+	@Override
+	public userTask fetchTaskById(int taskId) {
+		
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		Query<userTask> query = session.createQuery("from userTask ut where ut.taskId =:taskId", userTask.class);
+		query.setParameter("taskId", taskId);
+		
+		userTask task = query.uniqueResult();
+		transaction.commit();
+		session.close();
+		
+		return task;
+	}
+
 	
 	
 	

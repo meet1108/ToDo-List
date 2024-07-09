@@ -45,8 +45,12 @@ public class RegisterServiceImpl implements RegisterService{
 
 	@Override
 	public Appuser getUser(String email) {
-		System.out.println("Service Called");
 		return registerDao.findUserByEmail(email);
+	}
+
+	@Override
+	public userTask getTaskById(int taskId) {
+		return registerDao.fetchTaskById(taskId);
 	}
 	
 	

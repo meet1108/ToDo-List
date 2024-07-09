@@ -82,6 +82,7 @@ public class ToDoController {
 		return "Dashboard";
 	}
 
+	
 	// User Login
 	@PostMapping("/userLogin")
 	public String userLogin(@RequestParam("email") String email, @RequestParam("password") String password, Model model,
@@ -98,6 +99,7 @@ public class ToDoController {
 
 	}
 
+	
 	// Open Create Task Page
 	@GetMapping("/openCreateTask/{email}")
 		public String adminUpdate(@PathVariable String email,Model model) {
@@ -105,6 +107,8 @@ public class ToDoController {
 			return "createTask";
 		}
 
+	
+	
 	// Create Task
 	@PostMapping("/createTask")
 		public String createTask(@RequestParam("email") String email,@RequestParam("taskTitle") String taskTitle, 
@@ -127,6 +131,15 @@ public class ToDoController {
 		}
 		
 		
-	
+	//Open Task Form For Update
+	@GetMapping("/taskupdate/{taskId}")
+	public String adminUpdate(@PathVariable int taskId ,Model model) {
+		
+		userTask task = registerService.getTaskById(taskId);
+		
+		model.addAttribute("task", task);
+		return "createTask";
+	}
+
 
 }

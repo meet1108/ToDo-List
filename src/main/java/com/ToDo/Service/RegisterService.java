@@ -17,5 +17,6 @@ public interface RegisterService {
 
 	Appuser getUser(String email); 
 	
+	userTask getTaskById(int taskId);
 	
 }

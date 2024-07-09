@@ -19,18 +19,21 @@
 									<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Create
 										Task</p>
 									<c:set var="email" value="${email}"></c:set>
+									<c:set var="taskId" value="${taskId}"></c:set>
+									<c:set var="task" value="${task}"></c:set>
 
 									<form class="mx-1 mx-md-4" method="post" action="/ToDo-List/createTask">
 
 										<div>
 											<input type="text" name="email" value="${email }" />
+											<input type="text" name="taskId" value="${taskId}" />
 										</div>
 										<div class="d-flex flex-row align-items-center mb-4">
 											<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
 											<div data-mdb-input-init class="form-outline flex-fill mb-0">
 												<label class="form-label h5" for="form3Example3c">
 													Task Title</label> <input type="text" id="taskTitle"
-													name="taskTitle" class="form-control" />
+													name="taskTitle" value="${task.getTaskTitle() }"class="form-control" />
 											</div>
 										</div>
 
@@ -41,9 +44,9 @@
 											<div data-mdb-input-init class="form-outline flex-fill mb-0">
 												<label class="form-label h5" for="form3Example4c">Task
 													Description</label>
-												<textarea id="taskDescription" name="taskDescription"
-													class="form-control" rows="3"></textarea>
-											</div>
+												<textarea id="taskDescription"  name="taskDescription"
+												 class="form-control" rows="3"></textarea>
+											</div>	
 										</div>
 
 										<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">

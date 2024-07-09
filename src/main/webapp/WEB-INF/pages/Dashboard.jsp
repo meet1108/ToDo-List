@@ -35,10 +35,11 @@
 								<table id="myTable" >
 									<thead>
 										<tr>
-											<th>Task No.</th>
+											
 											<th>Title</th>
 											<th>Description</th>
 											<th>Action</th>
+										
 											
 										</tr>
 									</thead>
@@ -46,10 +47,19 @@
 									<c:forEach items="${allTask}" var="Task">
 									
 										<tr>
-											<td>Tiger Nixon</td>
+											
 											<td>${Task.getTaskTitle()}</td>
 											<td>${Task.getTaskDescription() }</td>
-											<td>update/delete</td>
+											
+											<td><a role="button" class="btn btn-outline-primary" href="taskupdate/${Task.getTaskId() }">Update</a>&nbsp       
+											<a role="button" class="btn btn-outline-danger">Delete</a></td>
+											
+											
+											<%-- 
+						<td><a type="button" class="btn btn-outline-danger"
+							id="delete" data-toggle="modal" data-target="#confirmationModal"
+							onclick="openConfrimationModal(${user.getUserId()})">Delete</a></td> --%>
+											
 											
 										</tr>
 										

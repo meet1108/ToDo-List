@@ -21,6 +21,8 @@ public interface RegisterDao {
 	List<userTask> fetchTask(String email);
 
 	Appuser findUserByEmail(String email);
+
+	userTask fetchTaskById(int taskId);
 	
 
 }
