@@ -23,7 +23,7 @@
 							<p class="h1 fw-bold mb-0 me-auto"> Your All Task </p>
 								<div
 									class="d-flex justify-content-center align-items-center mb-3 mb-lg-4">
-									<p class="fw-bold mb-0 me-auto">  <br>WelCome, ${user.getFullName() } ${user.getEmail() }</p>
+									<p class="fw-bold mb-0 me-auto">  <br>WelCome, ${user.getFullName() } </p>
 									<a class="btn btn-outline-primary"
 										href="openCreateTask/${user.getEmail() }" role="button">Create Task</a>
 									<!-- <button type="submit" class="btn btn-primary btn-lg">Create
