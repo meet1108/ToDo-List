@@ -19,16 +19,18 @@
 					<div class="card-body p-md-5 ">
 						<div class="row justify-content-center">
 
-							<form action="create">
+							
 							<p class="h1 fw-bold mb-0 me-auto"> Your All Task </p>
 								<div
 									class="d-flex justify-content-center align-items-center mb-3 mb-lg-4">
-									<p class="fw-bold mb-0 me-auto">  <br>WelCome, ${user.getFullName() } </p>
-									<button type="submit" class="btn btn-primary btn-lg">Create
-										Task</button>
+									<p class="fw-bold mb-0 me-auto">  <br>WelCome, ${user.getFullName() } ${user.getEmail() }</p>
+									<a class="btn btn-outline-primary"
+										href="openCreateTask/${user.getEmail() }" role="button">Create Task</a>
+									<!-- <button type="submit" class="btn btn-primary btn-lg">Create
+										Task</button> -->
 								</div>
-							</form>
-<c:set var="Task" value="${allTask}"></c:set>
+						
+
 							<div>
 								<table id="myTable" >
 									<thead>
@@ -41,13 +43,17 @@
 										</tr>
 									</thead>
 									<tbody>
+									<c:forEach items="${allTask}" var="Task">
+									
 										<tr>
 											<td>Tiger Nixon</td>
 											<td>${Task.getTaskTitle()}</td>
 											<td>${Task.getTaskDescription() }</td>
-											<td>61</td>
+											<td>update/delete</td>
 											
 										</tr>
+										
+										</c:forEach>
 									</tbody>
 								</table>
 

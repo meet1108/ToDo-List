@@ -18,5 +18,9 @@ public interface RegisterDao {
 	Appuser findByEmailAndPassword(String Email,String Password);
 
 	//Find Task By Email
-	List<userTask> findTask(String Email);
+	List<userTask> fetchTask(String email);
+
+	Appuser findUserByEmail(String email);
+	
+
 }

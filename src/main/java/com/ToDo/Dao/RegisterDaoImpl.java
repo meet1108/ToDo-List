@@ -46,15 +46,14 @@ public class RegisterDaoImpl implements RegisterDao {
 	//Create Task
 	@Override
 	public void insertTask(userTask task) {
-		Session session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
 		try {
+			Session session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
 			session.save(task);
-			
+			transaction.commit();
 		}catch(Exception e) {
 			e.printStackTrace();
-		}finally {
-			transaction.commit();
+			
 		}
 	}
 
@@ -78,29 +77,51 @@ public class RegisterDaoImpl implements RegisterDao {
 
 
 	@Override
-	public List<userTask> findTask(String Email) {
+	public List<userTask> fetchTask(String email) {
 		Session session = sessionFactory.openSession();
-		Transaction transaction = null;
+		Transaction transaction = session.beginTransaction();
+		System.out.println("Dao Called");
 		List<userTask> tasks = new ArrayList<userTask>();
 		
 		try {
-			transaction = session.beginTransaction();
-			Query<userTask> query = session.createQuery("from userTask where Email=:Email", userTask.class);
-			query.setParameter("Email",Email);
+			Query<userTask> query = session.createQuery("from userTask u where u.email= :email", userTask.class);
+			query.setParameter("email",email);
 			List<userTask> resultList = query.getResultList();
+			System.out.println(email);
+			System.out.println(resultList);
 			tasks.addAll(resultList);
-			transaction.commit();
+			
 		}catch(Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			throw e;
+			e.printStackTrace();
+			
 		}finally {
 			
+			transaction.commit();
 			session.close();			
 		}
 		
 		return tasks;
+	}
+
+
+//	@Override
+	public Appuser findUserByEmail(String email) {
+		
+	
+			System.out.println(email);
+			Session session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			Query<Appuser> query = session.createQuery("from Appuser au where au.email =:email", Appuser.class);
+			query.setParameter("email", email);
+			
+			Appuser user = query.uniqueResult();
+			transaction.commit();
+			session.close();
+			
+			return user;
+			
+		
+		
 	}
 
 	

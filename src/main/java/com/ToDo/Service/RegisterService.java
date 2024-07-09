@@ -13,5 +13,9 @@ public interface RegisterService {
 	
 	Appuser processLogin(String Email,String Password);
 	
-	List<userTask> userTask(String Email); 
+	List<userTask> getUserTask(String email);
+
+	Appuser getUser(String email); 
+	
+	
 }
