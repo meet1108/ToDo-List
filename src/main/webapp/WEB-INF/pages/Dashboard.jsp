@@ -39,6 +39,8 @@
 											<th>Title</th>
 											<th>Description</th>
 											<th>Action</th>
+											<th>Status</th>
+											
 										
 											
 										</tr>
@@ -52,13 +54,9 @@
 											<td>${Task.getTaskDescription() }</td>
 											
 											<td><a role="button" class="btn btn-outline-primary" href="taskupdate/${Task.getTaskId() }">Update</a>&nbsp       
-											<a role="button" class="btn btn-outline-danger">Delete</a></td>
+											<a role="button" href="statusUpdate/${Task.getTaskId() }"class="btn btn-outline-success">Complete</a></td>
 											
-											
-											<%-- 
-						<td><a type="button" class="btn btn-outline-danger"
-							id="delete" data-toggle="modal" data-target="#confirmationModal"
-							onclick="openConfrimationModal(${user.getUserId()})">Delete</a></td> --%>
+											<td>Pending</td>
 											
 											
 										</tr>

@@ -16,6 +16,7 @@ public class userTask {
 	private String email;
 	private String taskTitle;
 	private String taskDescription;
+	private String taskStatus;
 	
 	
 	
@@ -42,6 +43,12 @@ public class userTask {
 	}
 	public void setTaskDescription(String taskDescription) {
 		this.taskDescription = taskDescription;
+	}
+	public String getTaskStatus() {
+		return taskStatus;
+	}
+	public void setTaskStatus(String taskStatus) {
+		this.taskStatus = taskStatus;
 	}
 	
 	

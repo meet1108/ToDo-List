@@ -18,5 +18,7 @@ public interface RegisterService {
 	Appuser getUser(String email); 
 	
 	userTask getTaskById(int taskId);
+
+	void updateTask(int taskId,String taskTitle,String taskDescription, String taskStatus);
 	
 }

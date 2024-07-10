@@ -23,6 +23,10 @@ public interface RegisterDao {
 	Appuser findUserByEmail(String email);
 
 	userTask fetchTaskById(int taskId);
+
+
+
+	void updateTask(int taskId,String taskTitle,String taskDescription,String taskStatus);
 	
 
 }

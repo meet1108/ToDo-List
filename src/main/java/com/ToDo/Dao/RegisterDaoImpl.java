@@ -140,6 +140,45 @@ public class RegisterDaoImpl implements RegisterDao {
 		return task;
 	}
 
+
+//	@Override
+//	public String fetchTaskEmailById(String taskId) {
+//		Session session = sessionFactory.openSession();
+//		Transaction transaction = session.beginTransaction();
+//		String email;
+//		Query<userTask> query = session.createQuery("from userTask ut where ut.taskId =:taskId", userTask.class);
+//		query.setParameter("taskId", taskId);
+//		 userTask task = query.uniqueResult();
+//		 email= task.getEmail();
+//			transaction.commit();
+//			session.close();
+//		
+//		return email;
+//	}
+
+
+	@Override
+	public void updateTask(int taskId,String taskTitle,String taskDescription,String taskStatus) {
+		Session session = sessionFactory.openSession();
+		
+		try {
+		Transaction transaction = session.beginTransaction();
+		Query query = session.createQuery(
+				"update userTask ut set  ut.taskTitle=:taskTitle, ut.taskDescription=:taskDescription, ut.taskStatus=:taskStatus where ut.taskId=:taskId");
+		query.setParameter("taskTitle", taskTitle);
+		query.setParameter("taskDescription", taskDescription);
+		query.setParameter("taskId", taskId);
+		query.setParameter("taskStatus", taskStatus);
+		query.executeUpdate();
+		transaction.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			
+			session.close();
+		}
+	}
+
 	
 	
 	

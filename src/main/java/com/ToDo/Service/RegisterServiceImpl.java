@@ -52,6 +52,13 @@ public class RegisterServiceImpl implements RegisterService{
 	public userTask getTaskById(int taskId) {
 		return registerDao.fetchTaskById(taskId);
 	}
+
+
+
+	@Override
+	public void updateTask(int taskId,String taskTitle,String taskDescription,String taskStatus) {
+		registerDao.updateTask(taskId,taskTitle,taskDescription,taskStatus);
+	}
 	
 	
 	
