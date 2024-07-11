@@ -37,27 +37,35 @@ public class RegisterServiceImpl implements RegisterService{
 		return registerDao.findByEmailAndPassword(Email, Password);
 	}
 
+	//Fetch the User's all Task when It is Login
 	@Override
 	public List<userTask> getUserTask(String email) {
 		
 		return registerDao.fetchTask(email);
 	}
 
+	//fetch User Data By Email
 	@Override
 	public Appuser getUser(String email) {
 		return registerDao.findUserByEmail(email);
 	}
 
+	//fetch Task Data By the TaskId
 	@Override
 	public userTask getTaskById(int taskId) {
 		return registerDao.fetchTaskById(taskId);
 	}
 
-
-
+	//Update Task
 	@Override
 	public void updateTask(int taskId,String taskTitle,String taskDescription,String taskStatus) {
 		registerDao.updateTask(taskId,taskTitle,taskDescription,taskStatus);
+	}
+	
+	//Update Task Status 
+	@Override
+	public void updateStatus(int taskId,String taskStatus) {
+		registerDao.updateStatus(taskId,taskStatus);
 	}
 	
 	

@@ -19,14 +19,14 @@
 
 									<c:choose>
 										<c:when test="${flag}">
-									<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Update
-										Task</p>											
+											<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Update
+												Task</p>
 										</c:when>
 
 										<c:otherwise>
-									<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Create
-										Task</p>
-											
+											<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Create
+												Task</p>
+
 										</c:otherwise>
 									</c:choose>
 
@@ -37,11 +37,12 @@
 									<c:set var="task" value="${task}"></c:set>
 
 									<form class="mx-1 mx-md-4" method="post"
-										action="/ToDo-List/performTask">
+										action="/ToDo-List/perform	Task">
 
 										<div>
-											<input type="text" style="display: none;" name="email" value="${email }" /> <input
-												type="text" style="display: none;" name="taskId" value="${taskId}" />
+											<input type="text" style="display: none;" name="email"
+												value="${email }" /> <input type="text"
+												style="display: none;" name="taskId" value="${taskId}" />
 										</div>
 										<div class="d-flex flex-row align-items-center mb-4">
 											<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
@@ -64,11 +65,10 @@
 													value="${task.getTaskDescription() }" class="form-control"></input>
 											</div>
 										</div>
-										
-										<input type="text" id="taskStatus" name="taskStatus" value="Pending" />
 
-
-										<input type="hidden" id="action" name="action" value="" />
+										<input type="text" style="display: none;" id="taskStatus"
+											name="taskStatus" value="Pending" /> <input type="hidden"
+											id="action" name="action" value="" />
 
 										<c:choose>
 											<c:when test="${flag}">
@@ -84,6 +84,7 @@
 													<button type="submit" data-mdb-button-init
 														data-mdb-ripple-init onclick="submitForm('create')"
 														class="btn btn-primary btn-lg">Create</button>
+													
 												</div>
 											</c:otherwise>
 										</c:choose>

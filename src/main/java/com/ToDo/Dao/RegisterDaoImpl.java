@@ -59,7 +59,7 @@ public class RegisterDaoImpl implements RegisterDao {
 
 	
 	
-
+	//Check the User Is Valid  Or not then It Is For the Login
 	@Override
 	public Appuser findByEmailAndPassword(String Email, String Password) {
 
@@ -76,6 +76,7 @@ public class RegisterDaoImpl implements RegisterDao {
 	}
 
 
+	//When User Login That's Time User Show the all Task It's Self
 	@Override
 	public List<userTask> fetchTask(String email) {
 		Session session = sessionFactory.openSession();
@@ -104,7 +105,7 @@ public class RegisterDaoImpl implements RegisterDao {
 	}
 
 
-//	@Override
+	//fetch User Data By Email
 	public Appuser findUserByEmail(String email) {
 		
 	
@@ -125,6 +126,7 @@ public class RegisterDaoImpl implements RegisterDao {
 	}
 
 
+	//Fetch The TaskData By the Task ID
 	@Override
 	public userTask fetchTaskById(int taskId) {
 		
@@ -141,22 +143,7 @@ public class RegisterDaoImpl implements RegisterDao {
 	}
 
 
-//	@Override
-//	public String fetchTaskEmailById(String taskId) {
-//		Session session = sessionFactory.openSession();
-//		Transaction transaction = session.beginTransaction();
-//		String email;
-//		Query<userTask> query = session.createQuery("from userTask ut where ut.taskId =:taskId", userTask.class);
-//		query.setParameter("taskId", taskId);
-//		 userTask task = query.uniqueResult();
-//		 email= task.getEmail();
-//			transaction.commit();
-//			session.close();
-//		
-//		return email;
-//	}
-
-
+	//Update the Task Data
 	@Override
 	public void updateTask(int taskId,String taskTitle,String taskDescription,String taskStatus) {
 		Session session = sessionFactory.openSession();
@@ -179,6 +166,31 @@ public class RegisterDaoImpl implements RegisterDao {
 		}
 	}
 
+
+	//Update the TaskStatus 
+	@Override
+	public void updateStatus(int taskId,String taskStatus) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = null;
+		
+		try {
+			transaction = session.beginTransaction();
+			Query query = session.createQuery("update userTask ut set ut.taskStatus=:taskStatus where ut.taskId =:taskId");
+			query.setParameter("taskStatus", taskStatus);
+			query.setParameter("taskId", taskId);
+			query.executeUpdate();
+			transaction.commit();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+	}
+
+	
 	
 	
 	
