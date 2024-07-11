@@ -190,6 +190,30 @@ public class RegisterDaoImpl implements RegisterDao {
 		
 	}
 
+
+	//Update the User Password
+	@Override
+	public void updatePassword(Appuser user) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = null;
+		
+		try {
+			transaction = session.beginTransaction();
+			Query query = session.createQuery("update Appuser u set u.password=:password, u.conformPassword=:conformPassword where u.email =:email");
+			query.setParameter("password", user.getPassword());
+			query.setParameter("conformPassword", user.getConformPassword());
+			query.setParameter("email", user.getEmail());
+			query.executeUpdate();
+			transaction.commit();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+	}
+
 	
 	
 	

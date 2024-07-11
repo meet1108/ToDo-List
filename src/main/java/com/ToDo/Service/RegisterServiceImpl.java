@@ -67,6 +67,12 @@ public class RegisterServiceImpl implements RegisterService{
 	public void updateStatus(int taskId,String taskStatus) {
 		registerDao.updateStatus(taskId,taskStatus);
 	}
+
+	//Forgot the User Password
+	@Override
+	public void fotgetPassword(Appuser user) {
+		registerDao.updatePassword(user);
+	}
 	
 	
 	

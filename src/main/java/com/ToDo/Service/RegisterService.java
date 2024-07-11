@@ -30,5 +30,7 @@ public interface RegisterService {
 
 	//Update Task Status
 	void updateStatus(int taskId,String taskStatus);
-	
+
+	//Forget Password
+	void fotgetPassword(Appuser user);
 }

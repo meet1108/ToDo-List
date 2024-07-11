@@ -17,7 +17,7 @@
 									<p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4">Forgot Your Password</p>
 
 
-									<form class="mx-1 mx-md-4" method="post">
+									<form class="mx-1 mx-md-4" method="post" action="forgetPassword">
 
 									
 
@@ -54,7 +54,7 @@
 
 
 										<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-											<button type="button" data-mdb-button-init
+											<button type="submit" data-mdb-button-init
 												data-mdb-ripple-init class="btn btn-primary btn-lg">Forgot Password</button>
 										</div>
 

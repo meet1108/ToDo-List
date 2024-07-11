@@ -29,7 +29,8 @@
 								</p>
 								<a class="btn btn-outline-primary"
 									href="openCreateTask/${user.getEmail() }" role="button">Create
-									Task</a> &nbsp <a class="btn btn-outline-warning" href=""
+									Task</a> &nbsp;&nbsp;&nbsp;&nbsp; 
+									<a class="btn btn-outline-warning" href="/ToDo-List/Logout"
 									role="button">Logout</a>
 
 							</div>

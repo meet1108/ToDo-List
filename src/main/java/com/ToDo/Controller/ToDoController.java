@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.ToDo.Model.Appuser;
 import com.ToDo.Model.userTask;
@@ -183,8 +184,31 @@ public class ToDoController {
 		return ResponseEntity.ok("User Deleted");
 	}
 	
+	//Forget User Password By The Email
+	@PostMapping("/forgetPassword")
+	public String forgetPassword(@RequestParam("email") String email,@RequestParam("password") String password,
+			@RequestParam("conformPassword") String conformPassword,Model model) {
+	
+		Appuser user = new Appuser();
+		user.setEmail(email);
+		user.setPassword(password);
+		user.setConformPassword(conformPassword);
+		
+		registerService.fotgetPassword(user);
+		
+		return "redirect:login";
+	}
+	
+	
+	
+	
 	
 	//Logout User
-	
-	
+	@GetMapping("/Logout")
+	 public String logout(SessionStatus attributes) {
+      
+       attributes.setComplete();
+      
+       return "redirect:login";
+	}
 }

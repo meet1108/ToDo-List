@@ -31,6 +31,9 @@ public interface RegisterDao {
 
 	//Update the Task Status
 	void updateStatus(int taskId,String taskStatus);
+
+	//Update Password By the User
+	void updatePassword(Appuser user);
 	
 
 }
